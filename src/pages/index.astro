@@ -1,185 +1,51 @@
 ---
+import Container from "../components/Container.astro";
+import DashedContainer from "../components/DashedContainer.astro";
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 ---
 
 <Layout>
-  <div
-    class="absolute flex flex-col justify-center inset-0 max-w-[650px] mx-auto max-[690px]:mx-4 pointer-events-none"
-  >
-    <svg
-      data-direction="left"
-      data-variant="full-screen"
-      class="absolute pointer-events-none z-10 text-[#CBCBCB] left-0 top-0 h-full"
-      width="1"
-      height="100%"
-      viewBox="0 0 1 100"
-      preserveAspectRatio="none"
-      style="width:1px"
-    >
-      <line
-        x1="0.5"
-        y1="0"
-        x2="0.5"
-        y2="100"
-        stroke="currentColor"
-        stroke-width="1"
-        stroke-dasharray="6 6"
-        vector-effect="non-scaling-stroke"
-      >
-      </line>
-    </svg>
-    <svg
-      data-direction="right"
-      data-variant="full-screen"
-      class="absolute pointer-events-none z-10 text-[#CBCBCB] right-0 top-0 h-full"
-      width="1"
-      height="100%"
-      viewBox="0 0 1 100"
-      preserveAspectRatio="none"
-      style="width:1px"
-    >
-      <line
-        x1="0.5"
-        y1="0"
-        x2="0.5"
-        y2="100"
-        stroke="currentColor"
-        stroke-width="1"
-        stroke-dasharray="6 6"
-        vector-effect="non-scaling-stroke"
-      >
-      </line>
-    </svg>
-  </div>
-  <div class="max-w-[650px] w-full mx-auto pt-36">
-    <div
-      class="relative w-full flex items-center justify-center max-[690px]:px-8 px-4 py-4"
-    >
-      <svg
-        data-direction="top"
-        data-variant="full-screen"
-        class="absolute pointer-events-none z-10 text-[#CBCBCB] top-0 w-full"
-        width="100%"
-        height="1"
-        viewBox="0 0 100 1"
-        preserveAspectRatio="none"
-        style="left:50%;transform:translateX(-50%);width:100vw"
-      >
-        <line
-          x1="0"
-          y1="0.5"
-          x2="100"
-          y2="0.5"
-          stroke="currentColor"
-          stroke-width="1"
-          stroke-dasharray="6 6"
-          vector-effect="non-scaling-stroke"
+  <DashedContainer>
+    <div class="inline-flex w-full justify-between">
+      <div class="inline-flex items-center gap-3">
+        <div
+          class="relative md:size-[50px] size-10 object-fill flex bg-neutral-950 items-center justify-center overflow-hidden rounded-[10px]"
         >
-        </line>
-      </svg>
-      <svg
-        data-direction="bottom"
-        data-variant="full-screen"
-        class="absolute pointer-events-none z-10 text-[#CBCBCB] bottom-0 w-full"
-        width="100%"
-        height="1"
-        viewBox="0 0 100 1"
-        preserveAspectRatio="none"
-        style="left:50%;transform:translateX(-50%);width:100vw"
-      >
-        <line
-          x1="0"
-          y1="0.5"
-          x2="100"
-          y2="0.5"
-          stroke="currentColor"
-          stroke-width="1"
-          stroke-dasharray="6 6"
-          vector-effect="non-scaling-stroke"
-        >
-        </line>
-      </svg>
-      <div class="inline-flex w-full justify-between">
-        <div class="inline-flex items-center gap-3">
-          <div
-            class="relative md:size-[50px] size-10 object-fill flex bg-neutral-950 items-center justify-center overflow-hidden rounded-[10px]"
-          >
-            <img class="size-12" src="/avatar.png" draggable="false" />
-          </div>
-          <div>
-            <p class="text-lg font-medium text-neutral-900">kyrylo</p>
-            <p class="text-sm text-neutral-500 font-dm-mono">
-              full-stack developer
-            </p>
-          </div>
+          <img
+            class="max-[690px]:size-10 size-12"
+            src="/avatar.png"
+            draggable="false"
+          />
         </div>
-        <a
-          href="https://github.com/OneLiL05"
-          target="_blank"
-          class="flex items-center gap-1.5 text-sm font-medium text-neutral-500 px-2 py-1 cursor-pointer font-dm-mono hover:underline underline-offset-3 focus-visible:underline"
-          draggable="false"
-        >
-          <Icon name="cib:github" />
-          github
-        </a>
+        <div>
+          <p class="text-lg font-medium text-neutral-900">kyrylo</p>
+          <p class="text-sm text-neutral-500 font-dm-mono">
+            full-stack developer
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="max-[690px]:p-8 px-4 py-4">
-      <p>
-        hey, i'm kyrylo, a software developer who thrives on turning complex
-        problems into elegant, high-performing software solutions.
-      </p>
-    </div>
-    <div class="relative w-full flex max-[690px]:px-8 px-4 py-4 mt-5">
-      <svg
-        data-direction="top"
-        data-variant="full-screen"
-        class="absolute pointer-events-none z-10 text-[#CBCBCB] top-0 w-full"
-        width="100%"
-        height="1"
-        viewBox="0 0 100 1"
-        preserveAspectRatio="none"
-        style="left:50%;transform:translateX(-50%);width:100vw"
+      <a
+        href="https://github.com/OneLiL05"
+        target="_blank"
+        class="flex items-center gap-1.5 text-sm font-medium text-neutral-500 px-2 py-1 cursor-pointer font-dm-mono hover:underline underline-offset-3 focus-visible:underline"
+        draggable="false"
       >
-        <line
-          x1="0"
-          y1="0.5"
-          x2="100"
-          y2="0.5"
-          stroke="currentColor"
-          stroke-width="1"
-          stroke-dasharray="6 6"
-          vector-effect="non-scaling-stroke"
-        >
-        </line>
-      </svg>
-      <svg
-        data-direction="bottom"
-        data-variant="full-screen"
-        class="absolute pointer-events-none z-10 text-[#CBCBCB] bottom-0 w-full"
-        width="100%"
-        height="1"
-        viewBox="0 0 100 1"
-        preserveAspectRatio="none"
-        style="left:50%;transform:translateX(-50%);width:100vw"
-      >
-        <line
-          x1="0"
-          y1="0.5"
-          x2="100"
-          y2="0.5"
-          stroke="currentColor"
-          stroke-width="1"
-          stroke-dasharray="6 6"
-          vector-effect="non-scaling-stroke"
-        >
-        </line>
-      </svg>
-      <p class="uppercase font-dm-mono text-neutral-500">Projects</p>
+        <Icon name="cib:github" />
+        github
+      </a>
     </div>
-    <div class="relative w-full max-[690px]:px-8 px-4 py-4">
-      <p class="font-dm-mono">to be continued...</p>
-    </div>
-  </div>
+  </DashedContainer>
+  <Container>
+    <p>
+      hey, i'm kyrylo, a software developer who thrives on turning complex
+      problems into elegant, high-performing software solutions.
+    </p>
+  </Container>
+  <DashedContainer class:list={"mt-5"}>
+    <p class="text-left uppercase font-dm-mono text-neutral-500">Projects</p>
+  </DashedContainer>
+  <Container>
+    <p class="font-dm-mono">to be continued...</p>
+  </Container>
 </Layout>
