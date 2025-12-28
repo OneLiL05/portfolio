@@ -1,8 +1,23 @@
 ---
+import { Icon } from "astro-icon/components";
 import Container from "../components/Container.astro";
 import DashedContainer from "../components/DashedContainer.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import Layout from "../layouts/Layout.astro";
-import { Icon } from "astro-icon/components";
+import type { Project } from "../types";
+
+const projects = [
+  {
+    name: "fastify-effect-runtime",
+    description: "Library for integrating Effect runtime into Fastify",
+    url: "https://github.com/OneLiL05/fastify-effect-runtime",
+  },
+  {
+    name: "Mindenit Schedule API",
+    description: "Drop-in replacement for NURE CIST API",
+    url: "https://github.com/mindenit/schedule-api",
+  },
+] satisfies Project[];
 ---
 
 <Layout>
@@ -42,10 +57,10 @@ import { Icon } from "astro-icon/components";
       problems into elegant, high-performing software solutions.
     </p>
   </Container>
-  <DashedContainer class:list={"mt-5"}>
+  <DashedContainer class="mt-5">
     <p class="text-left uppercase font-dm-mono text-neutral-500">Projects</p>
   </DashedContainer>
   <Container>
-    <p class="font-dm-mono">to be continued...</p>
+    {projects.map((project) => <ProjectCard project={project} />)}
   </Container>
 </Layout>

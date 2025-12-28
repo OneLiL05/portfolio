@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon/components";
+import { constructRepoInfoApiUrl } from "../utils";
+import type { Project } from "../types";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+
+const [accName, repoName] = project.url
+  .replace(/https:\/\/github\.com\//, "")
+  .split("/");
+
+let starCount = 0;
+
+try {
+  const response = await fetch(constructRepoInfoApiUrl(accName, repoName));
+  if (response.ok) {
+    const data = await response.json();
+    starCount = data.stargazers_count ?? 0;
+  }
+} catch (error) {
+  console.error(`Failed to fetch repo info for ${repoName}:`, error);
+}
+---
+
+<article class="w-full p-4 hover:bg-neutral-50">
+  <div class="space-y-2">
+    <span class="inline-flex gap-2 items-center">
+      <a
+        href={project.url}
+        class="font-dm-mono text-base hover:underline underline-offset-3 focus-visible:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {project.name}
+      </a>
+      <div class="inline-flex gap-1 items-center text-xs">
+        <Icon name="lucide:star" class="size-3 text-yellow-500" />
+        {starCount}
+      </div>
+    </span>
+    <p class="text-sm text-neutral-500">
+      {project.description}
+    </p>
+  </div>
+</article>
