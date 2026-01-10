@@ -1,8 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-import Container from "../components/Container.astro";
-import DashedContainer from "../components/DashedContainer.astro";
-import ProjectCard from "../components/ProjectCard.astro";
 import Layout from "../layouts/Layout.astro";
 import type { Project } from "../types";
 
@@ -11,56 +8,123 @@ const projects = [
     name: "fastify-effect-runtime",
     description: "Library for integrating Effect runtime into Fastify",
     url: "https://github.com/OneLiL05/fastify-effect-runtime",
+    tags: ["typescript", "effect", "fastify"],
   },
   {
     name: "Mindenit Schedule API",
     description: "Drop-in replacement for NURE CIST API",
     url: "https://github.com/mindenit/schedule-api",
+    tags: ["api", "typescript"],
   },
-] satisfies Project[];
+] satisfies (Project & { tags: string[] })[];
+
+const links = [
+  { name: "GitHub", icon: "cib:github", url: "https://github.com/OneLiL05" },
+  {
+    name: "LinkedIn",
+    icon: "cib:linkedin",
+    url: "https://linkedin.com/in/kyrylo-savieliev",
+  },
+];
 ---
 
 <Layout>
-  <DashedContainer>
-    <div class="inline-flex w-full justify-between">
-      <div class="inline-flex items-center gap-3">
-        <div
-          class="relative md:size-[50px] size-10 object-fill flex bg-neutral-950 items-center justify-center overflow-hidden rounded-[10px]"
-        >
-          <img
-            class="max-[690px]:size-10 size-12"
-            src="/avatar.png"
-            draggable="false"
-          />
-        </div>
-        <div>
-          <p class="text-lg font-medium text-neutral-900">kyrylo</p>
-          <p class="text-sm text-neutral-500 font-dm-mono">
-            full-stack developer
-          </p>
-        </div>
+  <div
+    class="flex items-center gap-2 mb-10 font-dm-mono text-xs text-neutral-400"
+  >
+    <span class="inline-block size-1.5 rounded-full bg-emerald-500"></span>
+    <span>available for work</span>
+  </div>
+
+  <header class="mb-12">
+    <div class="flex items-start justify-between">
+      <div>
+        <h1 class="text-2xl font-medium text-neutral-900 tracking-tight">
+          kyrylo
+        </h1>
+        <p class="font-dm-mono text-neutral-500 mt-1">full-stack developer</p>
       </div>
-      <a
-        href="https://github.com/OneLiL05"
-        target="_blank"
-        class="flex items-center gap-1.5 text-sm font-medium text-neutral-500 px-2 py-1 cursor-pointer font-dm-mono hover:underline underline-offset-3 focus-visible:underline"
-        draggable="false"
+      <div
+        class="size-12 rounded-full overflow-hidden bg-neutral-900 ring-2 ring-accent/20"
       >
-        <Icon name="cib:github" />
-        github
-      </a>
+        <img
+          src="/avatar.png"
+          alt="Kyrylo"
+          class="size-full object-cover"
+          draggable="false"
+        />
+      </div>
     </div>
-  </DashedContainer>
-  <Container>
-    <p>
-      hey, i'm kyrylo, a software developer who thrives on turning complex
-      problems into elegant, high-performing software solutions.
+
+    <p class="mt-6 text-neutral-600 leading-relaxed">
+      I build software with a focus on type safety and clean architecture.
+      Currently exploring Effect ecosystem and functional programming patterns.
     </p>
-  </Container>
-  <DashedContainer class="mt-5">
-    <p class="text-left uppercase font-dm-mono text-neutral-500">Projects</p>
-  </DashedContainer>
-  <Container>
-    {projects.map((project) => <ProjectCard project={project} />)}
-  </Container>
+
+    <nav class="flex gap-4 mt-5">
+      {
+        links.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-sm text-neutral-500 hover:text-accent transition-colors"
+          >
+            <Icon name={link.icon} class="size-4" />
+            <span>{link.name}</span>
+          </a>
+        ))
+      }
+    </nav>
+  </header>
+
+  <section class="mb-12">
+    <h2
+      class="text-xs font-medium uppercase tracking-wider text-neutral-400 mb-4"
+    >
+      Projects
+    </h2>
+    <div class="space-y-4">
+      {
+        projects.map((project) => (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block group p-4 -mx-4 rounded-lg hover:bg-white transition-colors"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-medium text-neutral-900 group-hover:text-accent transition-colors">
+                  {project.name}
+                </h3>
+                <p class="text-sm text-neutral-500 mt-1">
+                  {project.description}
+                </p>
+                <div class="flex gap-2 mt-2">
+                  {project.tags.map((tag) => (
+                    <span class="text-xs font-dm-mono text-neutral-400">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <span class="text-neutral-300 group-hover:text-accent shrink-0 transition-colors">
+                ↗
+              </span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section>
+    <h2
+      class="text-xs font-medium uppercase tracking-wider text-neutral-400 mb-4"
+    >
+      Writing
+    </h2>
+    <p class="text-sm text-neutral-400">Coming soon</p>
+  </section>
 </Layout>

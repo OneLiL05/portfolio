@@ -8,18 +8,17 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article class="w-full p-4 hover:bg-neutral-50">
-  <div class="space-y-2">
-    <span class="inline-flex gap-2 items-center">
-      <a
-        href={project.url}
-        class="font-dm-mono text-base hover:underline underline-offset-3 focus-visible:underline"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {project.name}
-      </a>
-    </span>
+<article class="group w-full py-3 first:pt-0 last:pb-0">
+  <div class="space-y-1">
+    <a
+      href={project.url}
+      class="inline-flex items-center gap-2 font-dm-mono text-base text-neutral-800 hover:text-accent transition-colors"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {project.name}
+      <span class="text-neutral-300 group-hover:text-accent-light transition-colors">→</span>
+    </a>
     <p class="text-sm text-neutral-500">
       {project.description}
     </p>

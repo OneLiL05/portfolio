@@ -2,6 +2,8 @@
 
 @theme {
   --font-dm-mono: 'DM Mono', monospace;
+  --color-accent: #1a8cff;
+  --color-accent-light: #4da6ff;
 }
 
 html {
@@ -9,6 +11,21 @@ html {
   height: 100%;
 }
 
-p {
-  @apply selection:bg-neutral-900/5;
+::selection {
+  background-color: color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background-color: var(--color-accent);
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }

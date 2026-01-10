@@ -12,57 +12,9 @@ import "@fontsource/dm-mono";
     <SEO title="kyrylo" titleTemplate="%s | onelil" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body class="w-full relative h-dvh overflow-hidden">
-    <div
-      class="absolute flex flex-col justify-center inset-0 max-w-[650px] mx-auto max-[690px]:mx-4 pointer-events-none"
-    >
-      <svg
-        data-direction="left"
-        data-variant="full-screen"
-        class="absolute pointer-events-none z-10 text-[#CBCBCB] left-0 top-0 h-full"
-        width="1"
-        height="100%"
-        viewBox="0 0 1 100"
-        preserveAspectRatio="none"
-        style="width:1px"
-      >
-        <line
-          x1="0.5"
-          y1="0"
-          x2="0.5"
-          y2="100"
-          stroke="currentColor"
-          stroke-width="1"
-          stroke-dasharray="6 6"
-          vector-effect="non-scaling-stroke"
-        >
-        </line>
-      </svg>
-      <svg
-        data-direction="right"
-        data-variant="full-screen"
-        class="absolute pointer-events-none z-10 text-[#CBCBCB] right-0 top-0 h-full"
-        width="1"
-        height="100%"
-        viewBox="0 0 1 100"
-        preserveAspectRatio="none"
-        style="width:1px"
-      >
-        <line
-          x1="0.5"
-          y1="0"
-          x2="0.5"
-          y2="100"
-          stroke="currentColor"
-          stroke-width="1"
-          stroke-dasharray="6 6"
-          vector-effect="non-scaling-stroke"
-        >
-        </line>
-      </svg>
-    </div>
-    <div class="max-w-[650px] w-full mx-auto pt-36">
+  <body class="w-full min-h-dvh bg-neutral-50">
+    <main class="max-w-xl w-full mx-auto px-6 py-20 md:py-28">
       <slot />
-    </div>
+    </main>
   </body>
 </html>
