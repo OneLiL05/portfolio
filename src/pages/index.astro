@@ -3,6 +3,8 @@ import { Icon } from "astro-icon/components";
 import Layout from "../layouts/Layout.astro";
 import type { Project } from "../types";
 
+const availableForWork = false;
+
 const projects = [
   {
     name: "fastify-effect-runtime",
@@ -29,12 +31,14 @@ const links = [
 ---
 
 <Layout>
-  <div
-    class="flex items-center gap-2 mb-10 font-dm-mono text-xs text-neutral-400"
-  >
-    <span class="inline-block size-1.5 rounded-full bg-emerald-500"></span>
-    <span>available for work</span>
-  </div>
+  {
+    availableForWork && (
+      <div class="flex items-center gap-2 mb-10 font-dm-mono text-xs text-neutral-400">
+        <span class="inline-block size-1.5 rounded-full bg-emerald-500" />
+        <span>available for work</span>
+      </div>
+    )
+  }
 
   <header class="mb-12">
     <div class="flex items-start justify-between">
